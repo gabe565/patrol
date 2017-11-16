@@ -1,0 +1,24 @@
+{
+    "name": "patrol",
+    "scripts": {
+        "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "svg": "vsvg -s ./assets/svg -t ./assets/js/svg"
+    },
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+        "bootstrap": "4.0.0-beta.2",
+        "jquery": "^3.2.1",
+        "jquery.easing": "^1.4.1",
+        "laravel-mix": "^1.6.1",
+        "lodash": "^4.17.4",
+        "popper.js": "^1.12.9",
+        "vue": "^2.5.3",
+        "vue-router": "^3.0.1",
+        "vue-svgicon": "^2.1.0"
+    }
+}
