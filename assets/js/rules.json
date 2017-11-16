@@ -1,16 +1,19 @@
 {
     "types": {
         "Commander": {
+            "name": "Commander",
             "order": 0,
             "color": "info",
             "image": "commander.jpg"
         },
         "Agent": {
+            "name": "Agent",
             "order": 1,
             "color": "warning",
             "image": "agent.jpg"
         },
         "Patrol": {
+            "name": "Patrol",
             "order": 2,
             "color": "danger",
             "image": "patrol.jpg"

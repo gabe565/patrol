@@ -9,11 +9,11 @@
             </div>
             <div class="card-deck">
                 <div class="col-sm-6 col-md-4 col-xl-3" v-for="e in results">
-                    <div class="card text-white mb-5" :class="[ 'bg-' + e.color ]">
-                        <img class="card-img-top" :src="'images/' + e.image">
+                    <div class="card text-white mb-5" :class="[ 'bg-' + e.type.color ]">
+                        <img class="card-img-top" :src="'images/' + e.type.image">
                         <h3 class="card-header text-white">{{ e.name }}</h3>
                         <div class="card-body">
-                            <p class="card-text">{{ e.role }}</p>
+                            <p class="card-text">{{ e.type.name }}</p>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
 export default {
     data: function() {
         return {
-            types: undefined,
+            types: [],
             config: [],
             num: 0
         }
@@ -42,12 +42,12 @@ export default {
             _.forEach(this.$route.params, function(value, i) {
                 var name = value
                 var role = vue.config[i]
-                result.push(_.merge({
+                result.push({
                     'name': name,
-                    'role': role,
-                }, vue.types[role]))
+                    'type': vue.types[role]
+                })
             })
-            return _.sortBy(result, 'order')
+            return _.sortBy(result, 'type.order')
         }
     },
     created: function() {
