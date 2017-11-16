@@ -8,9 +8,9 @@
                 Enter the player names:
             </div>
             <form v-on:submit.prevent="submit">
-                <div class="input-group py-1" v-for="(e, i) in inputs">
-                    <label class="ml-auto col-auto col-xl-auto" :for="i">Player <span>{{ i + 1 }}</span></label>
-                    <input class="col-8 col-xl-4 form-control" type="text" :id="i" v-model="inputs[i]">
+                <div class="input-group py-1" v-for="(e, i) in inputs" :key="e.id">
+                    <label class="ml-auto my-auto col-auto col-xl-auto" :for="e.id">Player <span>{{ i + 1 }}</span></label>
+                    <input class="col-8 col-xl-4 form-control" type="text" :id="e.id" v-model="e.val">
                     <div class="mr-auto input-group-btn" v-if="i > 0">
                         <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove">
                             <svgicon name="minus" class="svg-fw"></svgicon>
@@ -21,13 +21,14 @@
                             <svgicon name="plus" class="svg-fw"></svgicon>
                         </button>
                     </div>
+                    </li>
                 </div>
                 <div class="text-center mt-3">
                     <button :disabled="!valid" class="btn btn-primary">Tell Me What to Do</button>
                 </div>
             </form>
         </section>
-        </div>
+    </div>
 </template>
 
 <script>
@@ -37,11 +38,18 @@ import '../svg/minus'
 export default {
     data: function() {
         return {
+            inc: 5,
             constraints: {
                 "min": 4,
                 "max": 8
             },
-            inputs: ['', '', '', '', '']
+            inputs: [
+                { id: 0, val: '' },
+                { id: 1, val: '' },
+                { id: 2, val: '' },
+                { id: 3, val: '' },
+                { id: 4, val: '' }
+            ]
         }
     },
     computed: {
@@ -49,7 +57,7 @@ export default {
             return _.size(this.inputs)
         },
         players: function() {
-            return _.compact(this.inputs)
+            return _.compact(_.map(this.inputs, 'val'))
         },
         numPlayers: function() {
             return _.size(this.players)
@@ -66,13 +74,16 @@ export default {
     },
     methods: {
         add: function() {
-            this.inputs.push('')
+            this.inputs.push({ id: this.id(), val: '' })
         },
         remove: function(i) {
             this.inputs.splice(i, 1)
         },
         submit: function() {
             this.$router.push({ name: 'roles', params: this.players })
+        },
+        id: function() {
+            return this.inc++
         }
     }
 }
