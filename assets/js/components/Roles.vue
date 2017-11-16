@@ -10,7 +10,7 @@
             <div class="card-deck">
                 <div class="col-sm-6 col-md-4 col-xl-3" v-for="e in results">
                     <div class="card text-white mb-5" :class="[ 'bg-' + e.type.color ]">
-                        <img class="card-img-top" :src="'images/' + e.type.image">
+                        <img class="card-img-top" :src="'images/' + sample(e.type.image)">
                         <h3 class="card-header text-white">{{ e.name }}</h3>
                         <div class="card-body">
                             <p class="card-text">{{ e.type.name }}</p>
@@ -71,6 +71,9 @@ export default {
     methods: {
         shuffle: function() {
             this.config = _.shuffle(this.config)
+        },
+        sample: function(collection) {
+            return _.sample(collection)
         }
     }
 }

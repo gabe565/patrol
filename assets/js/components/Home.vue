@@ -9,14 +9,14 @@
             </div>
             <form v-on:submit.prevent="submit">
                 <div class="input-group py-1" v-for="(e, i) in inputs">
-                    <label class="col-3" :for="i">Player <span>{{ i + 1 }}</span></label>
-                    <input class="col-8 form-control" type="text" :id="i" v-model="inputs[i]">
-                    <div class="input-group-btn" v-if="i > 0">
+                    <label class="ml-auto col-auto col-xl-auto" :for="i">Player <span>{{ i + 1 }}</span></label>
+                    <input class="col-8 col-xl-4 form-control" type="text" :id="i" v-model="inputs[i]">
+                    <div class="mr-auto input-group-btn" v-if="i > 0">
                         <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove">
                             <svgicon name="minus" class="svg-fw"></svgicon>
                         </button>
                     </div>
-                    <div class="input-group-btn" v-else>
+                    <div class="mr-auto input-group-btn" v-else>
                         <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="add" :disabled="!canAdd">
                             <svgicon name="plus" class="svg-fw"></svgicon>
                         </button>

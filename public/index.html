@@ -14,17 +14,14 @@
         <div id="app">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
                 <router-link to="/" class="navbar-brand">
-                    <span v-if="$route.name !== 'home'">
-                        Patrol
-                    </span>
-                    <span v-else>
-                        <span class="text-white h1 d-none d-lg-inline-block">
-                            <svgicon name="tp"></svgicon>
+                    <transition :name="transitionName" mode="out-in">
+                        <span v-if="$route.name !== 'home'" key="text" style="line-height: 48px">
+                            Patrol
                         </span>
-                        <span class="text-white d-lg-none d-inline-block">
-                            <svgicon name="tp"></svgicon>
+                        <span v-else key="icon" class="text-white" style="max-height: 48px">
+                            <svgicon name="tp" height="48"></svgicon>
                         </span>
-                    </span>
+                    </transition>
                 </router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
