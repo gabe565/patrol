@@ -19,3 +19,6 @@
     opacity: 0;
     transform: translate(-30px, 0);
 }
+.flip-list-move {
+    transition: transform .6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
