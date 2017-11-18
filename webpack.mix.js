@@ -15,9 +15,9 @@ mix.autoload({
     jquery: ['$', 'jQuery', 'window.jQuery'],
     'popper.js/dist/umd/popper.js': ['Popper']
 })
-    .js('assets/js/app.js', 'public')
+    .js('assets/js/app.js', 'public/js')
     .extract(['bootstrap', 'lodash', 'jquery', 'jquery.easing', 'vue'])
-    .sass('assets/sass/app.scss', 'public')
+    .sass('assets/sass/app.scss', 'public/css')
     .sourceMaps()
     .setPublicPath('public')
 
