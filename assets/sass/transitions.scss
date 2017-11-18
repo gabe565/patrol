@@ -1,7 +1,7 @@
 .fade-enter-active, .fade-leave-active {
     transition: opacity .2s cubic-bezier(.55,0,.1,1);
 }
-.fade-enter, .fade-leave-active {
+.fade-enter, .fade-leave-to {
     opacity: 0;
 }
 .child-view,

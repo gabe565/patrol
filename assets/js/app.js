@@ -43,8 +43,7 @@ const router = new VueRouter({
                     return { x: 0, y: 0 }
             }, 200)
         })
-    },
-    base: "/patrol/"
+    }
 })
 
 router.beforeEach(function(to, from, next) {

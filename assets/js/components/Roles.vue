@@ -29,9 +29,7 @@
 export default {
     data: function() {
         return {
-            types: [],
-            config: [],
-            num: 0
+            config: []
         }
     },
     computed: {
@@ -39,7 +37,7 @@ export default {
             var vue = this
 
             var result = [];
-            _.forEach(this.$route.params, function(value, i) {
+            _.forEach(this.players, function(value, i) {
                 var name = value
                 var role = vue.config[i]
                 result.push({
@@ -48,25 +46,31 @@ export default {
                 })
             })
             return _.sortBy(result, 'type.order')
-        }
+        },
+        types: function() {
+            return require('../json/types.json')
+        },
+        players: function() {
+            return _.compact(this.$route.params.players)
+        },
+        num: function() {
+            return _.size(this.players)
+        },
     },
     created: function() {
+        // if (_.isEmpty(this.players) || !_.has(rules.configs, this.num)) {
+        //     this.$router.replace({ name: 'home' })
+        // }
+
         var vue = this
-        var rules = require('../rules.json')
-        this.types = rules.types
-        var params = _.compact(this.$route.params)
-        this.num = _.size(params)
 
-        if (_.isEmpty(params) || !_.has(rules.configs, this.num)) {
-            this.$router.replace({ name: 'home' })
-        }
-
-        _.forEach(rules.configs[this.num], function(value, key) {
+        var config = []
+        _.forEach(this.$route.params.config, function(value, key) {
             for(var i = 0; i < value; i++) {
-                vue.config.push(key)
+                config.push(key)
             }
         })
-        this.shuffle()
+        this.config = config
     },
     methods: {
         shuffle: function() {
