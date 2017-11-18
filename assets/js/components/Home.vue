@@ -8,27 +8,27 @@
                 Enter the player names:
             </div>
             <form v-on:submit.prevent="submit">
-                <div class="input-group py-1" v-for="(e, i) in inputs" :key="e.id">
-                    <label class="ml-auto my-auto col-auto col-xl-auto" :for="e.id">Player <span>{{ i + 1 }}</span></label>
-                    <input class="col-8 col-xl-4 form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
-                    <div class="mr-auto input-group-btn" v-if="i > 0">
-                        <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove">
+                <div class="input-group py-1 mx-auto col-xl-5 col-md-8" v-for="(e, i) in inputs" :key="e.id">
+                    <label class="input-group-addon" :for="e.id">Player {{ i + 1 }}</label>
+                    <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
+                    <div class="mr-auto input-group-btn">
+                        <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove" v-if="i > 0">
                             <svgicon name="minus" class="svg-fw"></svgicon>
                         </button>
-                    </div>
-                    <div class="mr-auto input-group-btn" v-else>
-                        <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="add" :disabled="!canAdd">
+                        <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="add" :disabled="!canAdd" v-else>
                             <svgicon name="plus" class="svg-fw"></svgicon>
                         </button>
                     </div>
                     </li>
                 </div>
-                <div class="col-xl-5 mx-auto pt-3">
+                <div class="col-xl-5 col-md-8 mx-auto pt-3">
                     <div class="card" disabled>
-                        <a data-toggle="collapse" href="#config" aria-exanded="true" aria-controls="config">
-                            <div class="card-header">Game Configuration</div>
+                        <a data-toggle="collapse" href="#config" aria-exanded="false" aria-controls="config">
+                            <div class="card-header">
+                                <svgicon name="cog"></svgicon>
+                                &nbsp;Game Configuration</div>
                         </a>
-                        <div class="collapse show" id="config">
+                        <div class="collapse" id="config">
                             <div class="card-body">
                                 <transition name="fade" mode="out-in">
                                     <div class="card-text" v-if="valid" key="invalid">
@@ -70,6 +70,7 @@
 <script>
 import '../svg/plus'
 import '../svg/minus'
+import '../svg/cog'
 import '../svg/undo-alt'
 
 import { defaultConfigs } from '../rules/configs'
