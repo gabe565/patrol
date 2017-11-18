@@ -19,13 +19,17 @@
                 </div>
             </transition-group>
             <div class="text-center">
-                <button class="btn btn-primary" v-on:click="shuffle">Re-Shuffle</button>
+                <button class="btn btn-primary" v-on:click="shuffle">
+                    <svgicon name="random"></svgicon>
+                    &nbsp;Re-Shuffle</button>
             </div>
         </section>
     </div>
 </template>
 
 <script>
+import '../svg/random'
+
 export default {
     data: function() {
         return {

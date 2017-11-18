@@ -46,7 +46,9 @@
                                             </li>
                                         </ul>
                                         <div class="text-center">
-                                            <button type="button" class="btn btn-primary" v-on:click="resetConfig">Reset</button>
+                                            <button type="button" class="btn btn-primary" v-on:click="resetConfig">
+                                                <svgicon name="undo-alt"></svgicon>
+                                                &nbsp;Reset</button>
                                         </div>
                                     </div>
                                     <div class="card-text" v-else key="valid">
@@ -68,6 +70,7 @@
 <script>
 import '../svg/plus'
 import '../svg/minus'
+import '../svg/undo-alt'
 
 import { defaultConfigs } from '../rules/configs'
 
