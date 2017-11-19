@@ -73,7 +73,7 @@ import '../svg/minus'
 import '../svg/cog'
 import '../svg/undo-alt'
 
-import { defaultConfigs } from '../rules/configs'
+import {configs as defaultConfigs} from '../rules'
 
 export default {
     data: function() {

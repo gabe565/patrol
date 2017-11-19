@@ -21,7 +21,8 @@
             <div class="text-center">
                 <button class="btn btn-primary" v-on:click="shuffle">
                     <svgicon name="random"></svgicon>
-                    &nbsp;Re-Shuffle</button>
+                    &nbsp;Re-Shuffle
+                </button>
             </div>
         </section>
     </div>
@@ -30,55 +31,50 @@
 <script>
 import '../svg/random'
 
+import {types} from '../rules'
+
 export default {
     data: function() {
         return {
-            config: []
+            typeList: []
         }
     },
     computed: {
         results: function() {
             var vue = this
-
-            var result = [];
-            _.forEach(this.players, function(value, i) {
-                var name = value
-                var role = vue.config[i]
-                result.push({
-                    'name': name,
-                    'type': vue.types[role]
-                })
+            var result = _.map(this.players, function(value, i) {
+                var role = vue.typeList[i]
+                return {
+                    'name': value,
+                    'type': types[role]
+                }
             })
             return _.sortBy(result, 'type.order')
         },
-        types: function() {
-            return require('../json/types.json')
-        },
         players: function() {
-            return _.compact(this.$route.params.players)
+            return this.$route.params.players
         },
-        num: function() {
-            return _.size(this.players)
-        },
+        config: function() {
+            return this.$route.params.config
+        }
     },
     created: function() {
-        // if (_.isEmpty(this.players) || !_.has(rules.configs, this.num)) {
-        //     this.$router.replace({ name: 'home' })
-        // }
+        if (_.isEmpty(this.players) || _.isEmpty(this.config)) {
+            this.$router.replace({ name: 'home' })
+        }
 
         var vue = this
-
-        var config = []
-        _.forEach(this.$route.params.config, function(value, key) {
+        var typeList = []
+        _.forEach(this.config, function(value, key) {
             for(var i = 0; i < value; i++) {
-                config.push(key)
+                typeList.push(key)
             }
         })
-        this.config = config
+        this.typeList = typeList
     },
     methods: {
         shuffle: function() {
-            this.config = _.shuffle(this.config)
+            this.typeList = _.shuffle(this.typeList)
         },
         sample: function(collection) {
             return _.sample(collection)
