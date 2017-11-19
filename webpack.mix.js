@@ -19,6 +19,7 @@ mix.autoload({
     .extract(['bootstrap', 'lodash', 'jquery', 'jquery.easing', 'vue'])
     .sass('assets/sass/app.scss', 'public/css')
     .sourceMaps()
+    .version()
     .setPublicPath('public')
 
 // Full API
