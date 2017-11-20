@@ -33,11 +33,6 @@ export const types = {
 }
 
 export const configs = {
-    "4": {
-        "Commander": 1,
-        "Agent": 2,
-        "Patrol": 1
-    },
     "5": {
         "Commander": 1,
         "Agent": 2,

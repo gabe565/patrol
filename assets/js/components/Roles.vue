@@ -43,10 +43,9 @@ export default {
         results: function() {
             var vue = this
             var result = _.map(this.players, function(value, i) {
-                var role = vue.typeList[i]
                 return {
                     'name': value,
-                    'type': types[role]
+                    'type': types[vue.typeList[i]]
                 }
             })
             return _.sortBy(result, 'type.order')
@@ -65,10 +64,8 @@ export default {
 
         var vue = this
         var typeList = []
-        _.forEach(this.config, function(value, key) {
-            for(var i = 0; i < value; i++) {
-                typeList.push(key)
-            }
+        _.forEach(this.config, function(i, type) {
+            _.times(i, function() { typeList.push(type) })
         })
         this.typeList = typeList
     },
