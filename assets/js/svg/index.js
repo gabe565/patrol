@@ -1,5 +1,6 @@
 /* eslint-disable */
 require('./cog')
+require('./cubes')
 require('./info-circle')
 require('./minus')
 require('./plus')

@@ -21,7 +21,7 @@
             <div class="text-center">
                 <button class="btn btn-primary" v-on:click="shuffle">
                     <svgicon name="random"></svgicon>
-                    &nbsp;Re-Shuffle
+                    &nbsp;Reassign
                 </button>
             </div>
         </section>
