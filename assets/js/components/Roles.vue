@@ -34,6 +34,7 @@ import '../svg/random'
 import {types} from '../rules'
 
 export default {
+    props: ['players', 'config'],
     data: function() {
         return {
             typeList: []
@@ -49,12 +50,6 @@ export default {
                 }
             })
             return _.sortBy(result, 'type.order')
-        },
-        players: function() {
-            return this.$route.params.players
-        },
-        config: function() {
-            return this.$route.params.config
         }
     },
     created: function() {

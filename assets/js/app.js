@@ -27,7 +27,7 @@ import './svg/info-circle'
 const routes = [
     { name: 'home', path: '/', component: Home, meta: { title: 'Home' } },
     { name: 'about', path: '/about', component: About, meta: { title: 'About' } },
-    { name: 'roles', path: '/roles', component: Roles, meta: { title: 'Roles' } }
+    { name: 'roles', path: '/roles', component: Roles, meta: { title: 'Roles' }, props: true }
 ]
 
 const router = new VueRouter({
