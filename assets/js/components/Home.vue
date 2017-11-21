@@ -14,10 +14,10 @@
                         <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
                         <div class="mr-auto input-group-btn">
                             <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove" v-if="i > 0">
-                                <svgicon name="minus" class="svg-fw"></svgicon>
+                                <svgicon name="minus"></svgicon>
                             </button>
                             <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="add" :disabled="!canAdd" v-else>
-                                <svgicon name="plus" class="svg-fw"></svgicon>
+                                <svgicon name="plus"></svgicon>
                             </button>
                         </div>
                     </div>
