@@ -1,3 +1,5 @@
+import 'vue-svgicon/dist/polyfill'
+
 import { has } from 'lodash'
 window._ = _
 
