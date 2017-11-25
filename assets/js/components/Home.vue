@@ -128,7 +128,9 @@ export default {
             }
         },
         constraints: function() {
-            var keys = _.keys(this.configs)
+            var keys = _.map(_.keys(this.configs), function(value) {
+                return _.toNumber(value)
+            })
             return {
                 min: _.min(keys),
                 max: _.max(keys)

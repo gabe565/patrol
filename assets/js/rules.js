@@ -2,7 +2,7 @@ export const types = {
     "Commander": {
         "name": "Commander",
         "order": 0,
-        "color": "info",
+        "color": "success",
         "image": [
             "commander1.jpg",
             "commander2.jpg",
@@ -10,9 +10,17 @@ export const types = {
             "commander4.jpg"
         ]
     },
+    "Scout": {
+        "name": "Scout",
+        "order": 1,
+        "color": "info",
+        "image": [
+            "scout.jpg",
+        ]
+    },
     "Agent": {
         "name": "Agent",
-        "order": 1,
+        "order": 2,
         "color": "warning",
         "image": [
             "agent1.jpg",
@@ -22,7 +30,7 @@ export const types = {
     },
     "Patrol": {
         "name": "Patrol",
-        "order": 2,
+        "order": 3,
         "color": "danger",
         "image": [
             "patrol1.jpg",
@@ -49,8 +57,20 @@ export const configs = {
         "Patrol": 2
     },
     "8": {
-        "Commander": 2,
+        "Commander": 1,
         "Agent": 4,
+        "Patrol": 3
+    },
+    "9": {
+        "Commander": 1,
+        "Scout": 1,
+        "Agent": 5,
+        "Patrol": 2
+    },
+    "10": {
+        "Commander": 1,
+        "Scout": 1,
+        "Agent": 6,
         "Patrol": 2
     }
 }
