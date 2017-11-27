@@ -1,7 +1,6 @@
 // Global styling for this template
 
 body {
-    @include body-font;
     padding-top: 54px;
     color: $gray-600;
 
@@ -22,7 +21,7 @@ h3,
 h4,
 h5,
 h6 {
-    @include heading-font;
+    font-family: $font-family-headings;
     font-weight: 700;
     text-transform: uppercase;
     color: $gray-800;
@@ -42,9 +41,9 @@ h2 {
 }
 
 .subheading {
+    font-family: $font-family-headings;
     text-transform: uppercase;
     font-weight: 500;
-    @include heading-font;
     font-size: 1.35rem;
 }
 

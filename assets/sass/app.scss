@@ -4,15 +4,12 @@ $sidebar-base-width: 17rem;
 
 // Core variables and mixins
 @import "~bootstrap/scss/functions";
-@import "bootstrap/variables.scss";
-@import "bootstrap/mixins.scss";
-
+@import "variables";
 @import "~bootstrap/scss/bootstrap";
 
 // Global CSS
-@import "global.scss";
-@import "nav.scss";
-@import "bootstrap/bootstrap-overrides.scss";
+@import "main";
+@import "nav";
 // Components
 @import "transitions";
 @import "svg";
