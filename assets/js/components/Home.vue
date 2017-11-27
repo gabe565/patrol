@@ -137,10 +137,7 @@ export default {
             }
         },
         maxs: function() {
-            var total = 0
-            _.forEach(this.config, function(value) {
-                total += value
-            })
+            var total = _.sum(_.values(this.config))
             if (total >= this.numPlayers)
                 return this.config
             else
