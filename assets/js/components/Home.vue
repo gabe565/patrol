@@ -10,7 +10,7 @@
             <div class="col-xl-5 col-md-8 mx-auto">
                 <form v-on:submit.prevent="submit">
                     <div class="input-group py-1 col" v-for="(e, i) in inputs" :key="e.id">
-                        <label class="input-group-addon" :for="e.id">Player {{ i + 1 }}</label>
+                        <label class="input-group-addon" :for="e.id" style="min-width: 87px;">Player {{ i + 1 }}</label>
                         <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
                         <div class="mr-auto input-group-btn">
                             <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove" v-if="i > 0">
