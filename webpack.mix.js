@@ -11,15 +11,11 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.autoload({
-    jquery: ['$', 'jQuery', 'window.jQuery'],
-    'popper.js/dist/umd/popper.js': ['Popper']
-})
-    .js('assets/js/app.js', 'public/js')
-    .extract(['bootstrap', 'lodash', 'jquery', 'jquery.easing', 'vue'])
-    .sass('assets/sass/app.scss', 'public/css')
-    .sourceMaps()
-    .setPublicPath('public')
+mix.react('assets/js/app.js', 'public/js')
+   .extract(['bootstrap', 'jquery', 'jquery.easing', 'popper.js', 'vue', 'vue-router', 'vue-svgicon'])
+   .sass('assets/sass/app.scss', 'public/css')
+   .sourceMaps()
+   .setPublicPath('public')
 
 // Full API
 // mix.js(src, output);

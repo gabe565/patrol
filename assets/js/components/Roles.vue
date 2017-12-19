@@ -29,47 +29,55 @@
 </template>
 
 <script>
-import '../svg/random'
-
-import {types} from '../rules'
+const types = require('../rules').types
 
 export default {
-    props: ['players', 'config'],
-    data: function() {
+    props: {
+        'players': {
+            type: Array,
+            default() {
+                return []
+            }
+        },
+        'config': {
+            type: Object,
+            default() {
+                return {}
+            }
+        },
+    },
+    data() {
         return {
             typeList: []
         }
     },
     computed: {
-        results: function() {
-            var vue = this
-            var result = _.map(this.players, function(value, i) {
-                return {
-                    'name': value,
-                    'type': types[vue.typeList[i]]
-                }
-            })
-            return _.sortBy(result, 'type.order')
+        results() {
+            var result = this.players.map((v, k) => ({
+                'name': v,
+                'type': types[this.typeList[k]]
+            }))
+            result.sort((a, b) => a.type.order - b.type.order)
+            return result
         }
     },
-    created: function() {
-        if (_.isEmpty(this.players) || _.isEmpty(this.config)) {
+    created() {
+        if (this._props.players.length === 0 || this._props.config.length === 0) {
             this.$router.replace({ name: 'home' })
         }
 
-        var vue = this
-        var typeList = []
-        _.forEach(this.config, function(i, type) {
-            _.times(i, function() { typeList.push(type) })
+        Object.entries(this.config).forEach(([type, n]) => {
+            for (let i = 0; i < n; i++) {
+                this.typeList.push(type)
+            }
         })
-        this.typeList = typeList
     },
     methods: {
-        shuffle: function() {
-            this.typeList = _.shuffle(this.typeList)
+        shuffle() {
+            this.typeList = this.typeList.map(v => [Math.random(), v]).sort(([a,], [b,]) => a - b).map(([rand, v]) => v)
         },
-        sample: function(collection) {
-            return _.sample(collection)
+        sample(collection) {
+            return collection[Math.floor(Math.random() * collection.length)]
         }
     }
 }

@@ -1,35 +1,37 @@
-import 'vue-svgicon/dist/polyfill'
+'use strict'
 
-import { has } from 'lodash'
-window._ = _
+require('vue-svgicon/dist/polyfill')
 
-import jQuery from 'jquery'
-window.$ = window.jQuery = jQuery
-import 'jquery.easing'
+window.$ = window.jQuery = require("jquery");
+window.Popper = require('popper.js').default;;
+window.Vue = require('vue')
 
-import 'popper.js/dist/umd/popper'
+require('jquery.easing')
+require('bootstrap')
+require('./svg/index.js')
 
-import 'bootstrap'
-
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import VueSVGIcon from 'vue-svgicon'
+const VueRouter = require('vue-router').default
 
 Vue.use(VueRouter)
-Vue.use(VueSVGIcon)
-
-import Home from './components/Home.vue'
-import About from './components/About.vue'
-import Roles from './components/Roles.vue'
-
-import './svg/tp'
-import './svg/users'
-import './svg/info-circle'
+Vue.use(require('vue-svgicon'))
 
 const routes = [
-    { name: 'home', path: '/', component: Home, meta: { title: 'Home' } },
-    { name: 'about', path: '/about', component: About, meta: { title: 'About' } },
-    { name: 'roles', path: '/roles', component: Roles, meta: { title: 'Roles' }, props: true }
+    {
+        name: 'home',
+        path: '/',
+        component: require('./components/Home.vue'),
+        meta: { title: 'Home' }
+    },
+    {
+        name: 'about',
+        path: '/about',
+        component: require('./components/About.vue'),
+        meta: { title: 'About' } },
+    {
+        name: 'roles',
+        path: '/roles',
+        component: require('./components/Roles.vue'),
+        meta: { title: 'Roles' }, props: true }
 ]
 
 const router = new VueRouter({
@@ -37,7 +39,7 @@ const router = new VueRouter({
     mode: 'history',
     linkActiveClass: 'active',
     scrollBehavior(to, from, savedPosition) {
-        return new Promise(function(resolve, reject) {
+        return new Promise((resolve, reject) => {
             setTimeout(function() {
                 if (savedPosition)
                     return savedPosition
@@ -48,7 +50,7 @@ const router = new VueRouter({
     }
 })
 
-router.beforeEach(function(to, from, next) {
+router.beforeEach((to, from, next) => {
     document.title = to.meta.title ? to.meta.title + ' | Patrol' : 'Patrol'
     $('#app').removeClass(from.meta.title).addClass(to.meta.title)
     next()
@@ -57,13 +59,13 @@ router.beforeEach(function(to, from, next) {
 new Vue({
     el: '#app',
     router,
-    data: function() {
+    data() {
         return {
             transitionName: 'fade'
         }
     },
     watch: {
-        '$route': function(to, from) {
+        '$route'(to, from) {
             var fromIndex = routes.findIndex(function(obj) { return obj.path == from.path })
             var toIndex = routes.findIndex(function(obj) { return obj.path == to.path })
             this.transitionName = (fromIndex < toIndex) ? 'slide-left' : 'slide-right'
@@ -72,10 +74,8 @@ new Vue({
 })
 
 ;(function($) {
-  "use strict"; // Start of use strict
-
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.navbar-collapse').click(function() {
-    $('.navbar-collapse').collapse('hide')
-  })
-})(jQuery); // End of use strict
+    // Closes responsive menu when a scroll trigger link is clicked
+    $('.navbar-collapse').click(() => {
+        $('.navbar-collapse').collapse('hide')
+    })
+})(jQuery);

@@ -13,10 +13,10 @@
                         <label class="input-group-addon" :for="e.id" style="min-width: 87px;">Player {{ i + 1 }}</label>
                         <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
                         <div class="mr-auto input-group-btn">
-                            <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="remove(i)" :disabled="!canRemove" v-if="i > 0">
+                            <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="removeInput(i)" :disabled="!canRemove" v-if="i > 0">
                                 <svgicon name="minus"></svgicon>
                             </button>
-                            <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="add" :disabled="!canAdd" v-else>
+                            <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="addInput" :disabled="!canAdd" v-else>
                                 <svgicon name="plus"></svgicon>
                             </button>
                         </div>
@@ -85,65 +85,59 @@
 </template>
 
 <script>
-import '../svg/plus'
-import '../svg/minus'
-import '../svg/cog'
-import '../svg/undo-alt'
-import '../svg/cubes'
+const defaultConfigs = JSON.stringify(require('../rules').configs)
 
-import {configs as defaultConfigs} from '../rules'
+let id = 0
 
 export default {
-    data: function() {
+    data() {
         return {
             inputs: [],
             configs: {}
         }
     },
     computed: {
-        numInputs: function() {
-            return _.size(this.inputs)
+        numInputs() {
+            return this.inputs.length
         },
-        players: function() {
-            return _.compact(_.map(this.inputs, 'val'))
+        players() {
+            return this.inputs.map(v => v.val).filter(Boolean)
         },
-        numPlayers: function() {
-            return _.size(this.players)
+        numPlayers() {
+            return this.players.length
         },
-        valid: function() {
+        valid() {
             return this.validWith(this.numPlayers)
         },
-        canAdd: function() {
+        canAdd() {
             return this.validWith(this.numInputs + 1)
         },
-        canRemove: function() {
+        canRemove() {
             return this.validWith(this.numInputs - 1)
         },
         config: {
-            get: function() {
+            get() {
                 return this.configs[this.numPlayers]
             },
-            set: function(newValue) {
+            set(newValue) {
                 this.configs[this.numPlayers] = newValue
             }
         },
-        constraints: function() {
-            var keys = _.map(_.keys(this.configs), function(value) {
-                return _.toNumber(value)
-            })
+        constraints() {
+            let keys = Object.keys(this.configs).map(Number)
             return {
-                min: _.min(keys),
-                max: _.max(keys)
+                min: Math.min(...keys),
+                max: Math.max(...keys)
             }
         },
-        maxs: function() {
-            var total = _.sum(_.values(this.config))
+        maxs() {
+            var total = Object.values(this.config).reduce((a, c) => a + c)
             if (total >= this.numPlayers)
                 return this.config
             else
-                return _.mapValues(this.config, function(value) { return value + 1 })
+                return Object.entries(this.config).reduce((obj, [k, v]) => ({ ...obj, [k]: v + 1 }), {})
         },
-        supplies: function() {
+        supplies() {
             return {
                 phones: this.config['Agent'] + this.config['Commander'],
                 headphones: this.config['Agent']
@@ -151,28 +145,30 @@ export default {
         }
     },
     methods: {
-        add: function() {
-            this.inputs.push({ id: _.uniqueId(), val: '' })
+        addInput() {
+            this.inputs.push({ id: id++, val: '' })
         },
-        remove: function(i) {
+        removeInput(i) {
             this.inputs.splice(i, 1)
         },
-        validWith: function(num) {
+        validWith(num) {
             return this.constraints.min <= num && num <= this.constraints.max
         },
-        submit: function() {
+        submit() {
             this.$router.push({ name: 'roles', params: { players: this.players, config: this.config }})
         },
-        resetConfigs: function() {
-            this.configs = _.cloneDeep(defaultConfigs)
+        resetConfigs() {
+            this.configs = JSON.parse(defaultConfigs)
         },
-        resetConfig: function() {
-            this.config = _.clone(defaultConfigs[this.numPlayers])
+        resetConfig() {
+            this.config = JSON.parse(defaultConfigs)[this.numPlayers]
         }
     },
-    created: function() {
+    created() {
         this.resetConfigs()
-        _.times(this.constraints.min, this.add)
+        for (let i = 0; i < this.constraints.min; i++) {
+            this.addInput()
+        }
     }
 }
 </script>
