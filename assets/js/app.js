@@ -2,8 +2,8 @@
 
 require('vue-svgicon/dist/polyfill')
 
-window.$ = window.jQuery = require("jquery");
-window.Popper = require('popper.js').default;;
+window.$ = window.jQuery = require("jquery")
+window.Popper = require('popper.js/dist/umd/popper.js')
 window.Vue = require('vue')
 
 require('jquery.easing')
