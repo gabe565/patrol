@@ -1,4 +1,4 @@
-export const types = {
+const types = {
     "Commander": {
         "name": "Commander",
         "order": 0,
@@ -40,7 +40,7 @@ export const types = {
     }
 }
 
-export const configs = {
+const configs = {
     "5": {
         "Commander": 1,
         "Agent": 2,
@@ -73,4 +73,9 @@ export const configs = {
         "Agent": 6,
         "Patrol": 2
     }
+}
+
+module.exports = {
+    types,
+    configs
 }

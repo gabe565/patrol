@@ -62,7 +62,7 @@ export default {
         }
     },
     created() {
-        if (this._props.players.length === 0 || this._props.config.length === 0) {
+        if (this.players.length === 0 || this.config.length === 0) {
             this.$router.replace({ name: 'home' })
         }
 

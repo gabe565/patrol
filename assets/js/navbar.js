@@ -4,7 +4,7 @@
     var $navbarResponsive = $("#navbarResponsive")
     // "a:not([data-toggle])" - to avoid issues caused
     // when you have dropdown inside navbar
-    $navbarResponsive.on("click", "a:not([data-toggle])", null, function () {
+    $navbarResponsive.on("click", "a:not([data-toggle])", null, () => {
         $navbarResponsive.collapse('hide')
     })
 })(jQuery) // End of use strict

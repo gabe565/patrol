@@ -26,12 +26,15 @@ const routes = [
         name: 'about',
         path: '/about',
         component: require('./components/About.vue'),
-        meta: { title: 'About' } },
+        meta: { title: 'About' }
+    },
     {
         name: 'roles',
         path: '/roles',
         component: require('./components/Roles.vue'),
-        meta: { title: 'Roles' }, props: true }
+        meta: { title: 'Roles' },
+        props: true
+    }
 ]
 
 const router = new VueRouter({
@@ -40,12 +43,7 @@ const router = new VueRouter({
     linkActiveClass: 'active',
     scrollBehavior(to, from, savedPosition) {
         return new Promise((resolve, reject) => {
-            setTimeout(function() {
-                if (savedPosition)
-                    return savedPosition
-                else
-                    return { x: 0, y: 0 }
-            }, 200)
+            setTimeout(() => (savedPosition) ? savedPosition : { x: 0, y: 0 }, 200)
         })
     }
 })
@@ -66,8 +64,8 @@ new Vue({
     },
     watch: {
         '$route'(to, from) {
-            var fromIndex = routes.findIndex(function(obj) { return obj.path == from.path })
-            var toIndex = routes.findIndex(function(obj) { return obj.path == to.path })
+            let fromIndex = routes.findIndex(obj => obj.path == from.path)
+            let toIndex   = routes.findIndex(obj => obj.path == to.path)
             this.transitionName = (fromIndex < toIndex) ? 'slide-left' : 'slide-right'
         }
     }
