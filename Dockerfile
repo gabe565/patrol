@@ -19,7 +19,7 @@ LABEL maintainer="Gabe Cook <gabe565@gmail.com>"
 
 RUN apk add --no-cache curl
 
-COPY docker/default.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY docker/health-check /
 COPY --from=build-deps /app/public /usr/share/nginx/html
 
