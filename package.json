@@ -20,7 +20,8 @@
         "popper.js": "^1.14.4",
         "vue": "^2.5.17",
         "vue-router": "^3.0.1",
-        "vue-svgicon": "^3.2.0"
+        "vue-svgicon": "^3.2.0",
+        "vue-template-compiler": "^2.5.17"
     },
     "devDependencies": {
         "babel-preset-react": "^6.24.1"
