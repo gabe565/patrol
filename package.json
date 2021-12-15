@@ -6,7 +6,7 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "production": "mix --production",
-        "svg": "vsvg -s ./assets/svg -t ./assets/js/svg"
+        "svg": "vsvg -s ./src/svg -t ./src/js/svg"
     },
     "version": "1.0.0",
     "main": "index.js",

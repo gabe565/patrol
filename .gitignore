@@ -1,10 +1,6 @@
 /node_modules
 /.idea
 /.vagrant
-/public/hot
-/public/css
-/public/js
-/public/fonts
-/public/mix-manifest.json
+/dist
 npm-debug.log
 yarn-error.log

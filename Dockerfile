@@ -4,8 +4,8 @@ WORKDIR /app
 COPY package.json package-lock.json webpack.mix.js ./
 RUN npm ci
 
-COPY assets/ assets/
-COPY public/ public/
+COPY static/ static/
+COPY src/ src/
 RUN npm run production --no-progress
 
 
@@ -19,4 +19,4 @@ COPY docker/health-check /
 HEALTHCHECK --interval=1m --timeout=5s \
     CMD ["/health-check"]
 
-COPY --from=build-deps /app/public /usr/share/nginx/html
+COPY --from=build-deps /app/dist /usr/share/nginx/html
