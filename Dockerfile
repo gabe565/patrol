@@ -1,4 +1,4 @@
-FROM node:14-alpine as build-deps
+FROM --platform=$BUILDPLATFORM node:14-alpine as build-deps
 WORKDIR /app
 
 COPY package.json package-lock.json webpack.mix.js ./
