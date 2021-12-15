@@ -8,7 +8,7 @@
                 Here are the shuffled roles:
             </div>
             <transition-group name="flip-list" tag="div" class="card-deck">
-                <div class="col-sm-6 col-md-4 col-xl-3" v-for="e in results" :key="e.name">
+                <div class="col-sm-6 col-md-4 col-xl-3" v-for="(e, k) in results" :key="k">
                     <div class="card text-white mb-5" :class="[ 'bg-' + e.type.color ]">
                         <img class="card-img-top" :src="'images/' + sample(e.type.image)">
                         <h3 class="card-header text-white">{{ e.name }}</h3>
