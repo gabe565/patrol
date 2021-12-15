@@ -1,14 +1,14 @@
 'use strict'
 
-require('vue-svgicon/dist/polyfill')
+require('vue-svgicon/dist/polyfill').default
 
-window.$ = window.jQuery = require("jquery")
-window.Popper = require('popper.js/dist/umd/popper.js')
-window.Vue = require('vue')
+window.$ = window.jQuery = require("jquery").default
+window.Popper = require('popper.js/dist/umd/popper.js').default
+window.Vue = require('vue').default
 
-require('jquery.easing')
-require('bootstrap')
-require('./svg/index.js')
+require('jquery.easing').default
+require('bootstrap').default
+require('./svg/index.js').default
 
 const VueRouter = require('vue-router').default
 
@@ -19,19 +19,19 @@ const routes = [
     {
         name: 'home',
         path: '/',
-        component: require('./components/Home.vue'),
+        component: require('./components/Home.vue').default,
         meta: { title: 'Home' }
     },
     {
         name: 'about',
         path: '/about',
-        component: require('./components/About.vue'),
+        component: require('./components/About.vue').default,
         meta: { title: 'About' }
     },
     {
         name: 'roles',
         path: '/roles',
-        component: require('./components/Roles.vue'),
+        component: require('./components/Roles.vue').default,
         meta: { title: 'Roles' },
         props: true
     }

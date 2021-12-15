@@ -15,10 +15,12 @@ mix.autoload({
     jquery: ['$', 'jQuery', 'window.jQuery'],
     'popper.js/dist/umd/popper.js': ['Popper']
 })
-   .react('assets/js/app.js', 'public/js')
+   .js('assets/js/app.js', 'js')
+   .vue()
    .extract(['bootstrap', 'jquery', 'jquery.easing', 'popper.js', 'vue', 'vue-router', 'vue-svgicon'])
-   .sass('assets/sass/app.scss', 'public/css')
+   .sass('assets/sass/app.scss', 'css')
    .sourceMaps()
+   .webpackConfig({devtool: 'source-map'})
    .setPublicPath('public')
 
 // Full API
