@@ -29,7 +29,7 @@
         "babel-preset-react": "^6.24.1",
         "resolve-url-loader": "^5.0.0",
         "sass": "^1.45.0",
-        "sass-loader": "^12.4.0",
+        "sass-loader": "^13.0.0",
         "vue-loader": "^15.9.8"
     }
 }
