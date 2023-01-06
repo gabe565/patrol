@@ -10,8 +10,8 @@ RUN npm run production --no-progress
 
 
 FROM nginx:stable-alpine
-LABEL maintainer "Gabe Cook <gabe565@gmail.com>"
-LABEL org.opencontainers.image.source https://github.com/gabe565/patrol
+LABEL maintainer="Gabe Cook <gabe565@gmail.com>"
+LABEL org.opencontainers.image.source="https://github.com/gabe565/patrol"
 
 RUN apk add --no-cache curl
 
