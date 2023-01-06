@@ -22,7 +22,7 @@
         "vue-router": "^3.0.1",
         "vue-svgicon": "^3.2.9",
         "vue-template-compiler": "^2.5.17",
-        "yargs-parser": "^13.1.2"
+        "yargs-parser": "^21.0.0"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.16.5",
