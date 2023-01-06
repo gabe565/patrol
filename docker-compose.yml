@@ -1,7 +1,8 @@
-version: "2.4"
+version: "3.9"
 
 services:
   app:
     build: .
-    image: gabe565/patrol
-    restart: always
+    image: ghcr.io/gabe565/patrol
+    ports:
+      - "80:80"
