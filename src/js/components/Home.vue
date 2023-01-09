@@ -10,16 +10,14 @@
             <div class="col-xl-5 col-md-8 mx-auto">
                 <form v-on:submit.prevent="submit">
                     <div class="input-group py-1 col" v-for="(e, i) in inputs" :key="e.id">
-                        <label class="input-group-addon" :for="e.id" style="min-width: 87px;">Player {{ i + 1 }}</label>
+                        <label class="input-group-text" :for="e.id" style="min-width: 87px;">Player {{ i + 1 }}</label>
                         <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
-                        <div class="mr-auto input-group-btn">
-                            <button type="button" class="btn btn-secondary rounded-0 rounded-end" tabindex="-1" v-on:click="removeInput(i)" :disabled="!canRemove" v-if="i > 0">
-                                <svgicon name="minus"></svgicon>
-                            </button>
-                            <button type="button" class="btn btn-secondary rounded-0 rounded-end" tabindex="-1" v-on:click="addInput" :disabled="!canAdd" v-else>
-                                <svgicon name="plus"></svgicon>
-                            </button>
-                        </div>
+                        <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="removeInput(i)" :disabled="!canRemove" v-if="i > 0">
+                            <svgicon name="minus"></svgicon>
+                        </button>
+                        <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="addInput" :disabled="!canAdd" v-else>
+                            <svgicon name="plus"></svgicon>
+                        </button>
                     </div>
                     <div class="col pt-3">
                         <div class="card" disabled>
@@ -39,7 +37,7 @@
                                                 <div class="col-10 mx-auto">
                                                     <div class="input-group py-1">
                                                         <input type="number" v-model.number="config[key]" class="form-control" min="1" :max="maxs[key]" autocomplete="off"></input>
-                                                        <span class="input-group-addon" style="min-width: 130px;">
+                                                        <span class="input-group-text" style="min-width: 130px;">
                                                             {{ key }}<span v-if="e > 1">s</span>
                                                         </span>
                                                     </div>
