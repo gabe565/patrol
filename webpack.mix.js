@@ -13,9 +13,6 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('dist')
     .copy('static', 'dist')
-    .autoload({
-        jquery: ['$', 'jQuery', 'window.jQuery']
-    })
     .js('src/js/app.js', 'js')
     .vue()
     .sass('src/sass/app.scss', 'css')

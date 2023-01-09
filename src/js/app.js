@@ -2,14 +2,10 @@
 
 import 'vue-svgicon/dist/polyfill';
 
-import jQuery from "jquery";
-window.$ = window.jQuery = jQuery;
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import SvgIcon from 'vue-svgicon';
 
-import 'jquery.easing';
 import 'bootstrap';
 import './svg/index';
 import Home from './components/Home.vue';
@@ -54,7 +50,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title ? to.meta.title + ' | Patrol' : 'Patrol'
-    $('#app').removeClass(from.meta.title).addClass(to.meta.title)
+    document.getElementById('app').classList.replace(from.meta.title, to.meta.title);
     next()
 })
 
@@ -74,10 +70,3 @@ new Vue({
         }
     }
 })
-
-;(function($) {
-    // Closes responsive menu when a scroll trigger link is clicked
-    $('.navbar-collapse').click(() => {
-        $('.navbar-collapse').collapse('hide')
-    })
-})(jQuery);
