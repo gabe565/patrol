@@ -23,7 +23,7 @@
                     </div>
                     <div class="col pt-3">
                         <div class="card" disabled>
-                            <a data-bs-toggle="collapse" href="#config" role="button" aria-exanded="false" aria-controls="config">
+                            <a data-bs-toggle="collapse" href="#config" role="button" aria-exanded="false" aria-controls="config" class="text-decoration-none">
                                 <div class="card-header">
                                     <svgicon name="cog"></svgicon>
                                     &nbsp;Game Configuration
