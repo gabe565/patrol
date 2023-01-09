@@ -1,37 +1,44 @@
 'use strict'
 
-require('vue-svgicon/dist/polyfill').default
+import 'vue-svgicon/dist/polyfill';
 
-window.$ = window.jQuery = require("jquery").default
-window.Popper = require('popper.js/dist/umd/popper.js').default
-window.Vue = require('vue').default
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 
-require('jquery.easing').default
-require('bootstrap').default
-require('./svg/index.js').default
+import Popper from 'popper.js';
+window.Popper = Popper;
 
-const VueRouter = require('vue-router').default
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import SvgIcon from 'vue-svgicon';
+
+import 'jquery.easing';
+import 'bootstrap';
+import './svg/index';
+import Home from './components/Home.vue';
+import About from './components/About.vue';
+import Roles from './components/Roles.vue';
 
 Vue.use(VueRouter)
-Vue.use(require('vue-svgicon'))
+Vue.use(SvgIcon);
 
 const routes = [
     {
         name: 'home',
         path: '/',
-        component: require('./components/Home.vue').default,
+        component: Home,
         meta: { title: 'Home' }
     },
     {
         name: 'about',
         path: '/about',
-        component: require('./components/About.vue').default,
+        component: About,
         meta: { title: 'About' }
     },
     {
         name: 'roles',
         path: '/roles',
-        component: require('./components/Roles.vue').default,
+        component: Roles,
         meta: { title: 'Roles' },
         props: true
     }

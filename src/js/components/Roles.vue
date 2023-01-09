@@ -29,7 +29,8 @@
 </template>
 
 <script>
-const types = require('../rules').types
+import rules from '../rules';
+const types = rules.types
 
 export default {
     props: {

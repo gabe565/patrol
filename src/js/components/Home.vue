@@ -85,7 +85,8 @@
 </template>
 
 <script>
-const defaultConfigs = JSON.stringify(require('../rules').configs)
+import rules from '../rules';
+const defaultConfigs = JSON.stringify(rules.configs)
 
 let id = 0
 
