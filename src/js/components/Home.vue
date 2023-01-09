@@ -13,10 +13,10 @@
                         <label class="input-group-addon" :for="e.id" style="min-width: 87px;">Player {{ i + 1 }}</label>
                         <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
                         <div class="mr-auto input-group-btn">
-                            <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="removeInput(i)" :disabled="!canRemove" v-if="i > 0">
+                            <button type="button" class="btn btn-secondary rounded-0 rounded-end" tabindex="-1" v-on:click="removeInput(i)" :disabled="!canRemove" v-if="i > 0">
                                 <svgicon name="minus"></svgicon>
                             </button>
-                            <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="addInput" :disabled="!canAdd" v-else>
+                            <button type="button" class="btn btn-secondary rounded-0 rounded-end" tabindex="-1" v-on:click="addInput" :disabled="!canAdd" v-else>
                                 <svgicon name="plus"></svgicon>
                             </button>
                         </div>
