@@ -5,9 +5,6 @@ import 'vue-svgicon/dist/polyfill';
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
-import Popper from 'popper.js';
-window.Popper = Popper;
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import SvgIcon from 'vue-svgicon';

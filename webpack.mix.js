@@ -14,8 +14,7 @@ let mix = require('laravel-mix');
 mix.setPublicPath('dist')
     .copy('static', 'dist')
     .autoload({
-        jquery: ['$', 'jQuery', 'window.jQuery'],
-        'popper.js/dist/umd/popper.js': ['Popper']
+        jquery: ['$', 'jQuery', 'window.jQuery']
     })
     .js('src/js/app.js', 'js')
     .vue()
