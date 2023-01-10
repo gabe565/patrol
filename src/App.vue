@@ -1,23 +1,42 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <nav
+      id="sideNav"
+      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
+    >
       <router-link to="/" class="navbar-brand">
-        <font-awesome-icon icon="fa-thin fa-toilet-paper" class="fa-2x align-middle"/>
+        <font-awesome-icon
+          icon="fa-thin fa-toilet-paper"
+          class="fa-2x align-middle"
+        />
         &nbsp;Patrol
       </router-link>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div id="navbarSupportedContent" class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link to="/" class="nav-link" exact>
-              <font-awesome-icon icon="fa-regular fa-users" class="fa-fw"/>
+              <font-awesome-icon icon="fa-regular fa-users" class="fa-fw" />
               Roles
             </router-link>
+          </li>
+
           <li class="nav-item">
             <router-link to="/about" class="nav-link">
-              <font-awesome-icon icon="fa-regular fa-info-circle" class="fa-fw"/>
+              <font-awesome-icon
+                icon="fa-regular fa-info-circle"
+                class="fa-fw"
+              />
               About
             </router-link>
           </li>
@@ -34,15 +53,19 @@
 export default {
   data() {
     return {
-      transitionName: 'fade'
-    }
+      transitionName: "fade",
+    };
   },
   watch: {
-    '$route'(to, from) {
-      let fromIndex = this.$router.getRoutes().findIndex(obj => obj.path === from.path)
-      let toIndex   = this.$router.getRoutes().findIndex(obj => obj.path === to.path)
-      this.transitionName = (fromIndex < toIndex) ? 'slide-left' : 'slide-right'
-    }
-  }
-}
+    $route(to, from) {
+      const fromIndex = this.$router
+        .getRoutes()
+        .findIndex((obj) => obj.path === from.path);
+      const toIndex = this.$router
+        .getRoutes()
+        .findIndex((obj) => obj.path === to.path);
+      this.transitionName = fromIndex < toIndex ? "slide-left" : "slide-right";
+    },
+  },
+};
 </script>

@@ -7,7 +7,7 @@ import {
   faCog,
   faRotateLeft,
   faCubes,
-  faShuffle
+  faShuffle,
 } from "@fortawesome/pro-regular-svg-icons";
 import { faToiletPaper } from "@fortawesome/pro-thin-svg-icons";
 
@@ -20,5 +20,5 @@ library.add(
   faCog,
   faRotateLeft,
   faCubes,
-  faShuffle,
+  faShuffle
 );
