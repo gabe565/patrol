@@ -18,7 +18,6 @@
         "@popperjs/core": "2.11.6",
         "@vitejs/plugin-vue2": "2.2.0",
         "bootstrap": "5.2.3",
-        "svgo": "3.0.2",
         "vite": "4.0.4",
         "vue": "2.7.14",
         "vue-router": "3.6.5",
