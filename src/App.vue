@@ -43,29 +43,10 @@
         </ul>
       </div>
     </nav>
-    <transition :name="transitionName" mode="out-in">
-      <router-view class="child-view"></router-view>
-    </transition>
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      transitionName: "fade",
-    };
-  },
-  watch: {
-    $route(to, from) {
-      const fromIndex = this.$router
-        .getRoutes()
-        .findIndex((obj) => obj.path === from.path);
-      const toIndex = this.$router
-        .getRoutes()
-        .findIndex((obj) => obj.path === to.path);
-      this.transitionName = fromIndex < toIndex ? "slide-left" : "slide-right";
-    },
-  },
-};
-</script>

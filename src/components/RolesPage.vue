@@ -29,33 +29,24 @@
 </template>
 
 <script>
+import { mapStores } from "pinia";
+import { useGameStore } from "../plugins/store";
+
 import rules from "../rules";
 
 const { types } = rules;
 
 export default {
-  props: {
-    players: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-    config: {
-      type: Object,
-      default() {
-        return {};
-      },
-    },
-  },
   data() {
     return {
       typeList: [],
     };
   },
   computed: {
+    ...mapStores(useGameStore),
+
     results() {
-      const result = this.players.map((v, k) => ({
+      const result = this.gameStore.players.map((v, k) => ({
         name: v,
         type: types[this.typeList[k]],
       }));
@@ -64,11 +55,14 @@ export default {
     },
   },
   created() {
-    if (this.players.length === 0 || this.config.length === 0) {
+    if (
+      this.gameStore.players.length === 0 ||
+      this.gameStore.config.length === 0
+    ) {
       this.$router.replace({ name: "home" });
     }
 
-    Object.entries(this.config).forEach(([type, n]) => {
+    Object.entries(this.gameStore.config).forEach(([type, n]) => {
       for (let i = 0; i < n; i += 1) {
         this.typeList.push(type);
       }

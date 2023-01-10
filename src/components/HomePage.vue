@@ -132,7 +132,9 @@
 </template>
 
 <script>
+import { mapStores } from "pinia";
 import rules from "../rules";
+import { useGameStore } from "../plugins/store";
 
 const defaultConfigs = JSON.stringify(rules.configs);
 
@@ -146,6 +148,8 @@ export default {
     };
   },
   computed: {
+    ...mapStores(useGameStore),
+
     numInputs() {
       return this.inputs.length;
     },
@@ -212,10 +216,9 @@ export default {
       return this.constraints.min <= num && num <= this.constraints.max;
     },
     submit() {
-      this.$router.push({
-        name: "roles",
-        params: { players: this.players, config: this.config },
-      });
+      this.gameStore.players = this.players;
+      this.gameStore.config = this.config;
+      this.$router.push({ name: "roles" });
     },
     resetConfigs() {
       this.configs = JSON.parse(defaultConfigs);
