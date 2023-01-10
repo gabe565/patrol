@@ -1,19 +1,20 @@
 'use strict'
 
-import 'vue-svgicon/dist/polyfill';
+import './sass/app.scss';
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import SvgIcon from 'vue-svgicon';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import './plugins/fontawesome';
 import 'bootstrap';
-import './svg/index';
 import Home from './components/Home.vue';
 import About from './components/About.vue';
 import Roles from './components/Roles.vue';
+import App from './App.vue';
 
 Vue.use(VueRouter)
-Vue.use(SvgIcon);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 const routes = [
     {
@@ -55,18 +56,6 @@ router.beforeEach((to, from, next) => {
 })
 
 new Vue({
-    el: '#app',
     router,
-    data() {
-        return {
-            transitionName: 'fade'
-        }
-    },
-    watch: {
-        '$route'(to, from) {
-            let fromIndex = routes.findIndex(obj => obj.path == from.path)
-            let toIndex   = routes.findIndex(obj => obj.path == to.path)
-            this.transitionName = (fromIndex < toIndex) ? 'slide-left' : 'slide-right'
-        }
-    }
-})
+    render: (h) => h(App),
+}).$mount("#app");

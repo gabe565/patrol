@@ -10,7 +10,7 @@
             <transition-group name="flip-list" tag="div" class="row">
                 <div class="col-sm-6 col-md-4 col-xl-3" v-for="e in results" :key="e.name">
                     <div class="card text-white mb-5" :class="[ 'bg-' + e.type.color ]">
-                        <img class="card-img-top" :src="'images/' + sample(e.type.image)">
+                        <img class="card-img-top" :src="sample(e.type.image)">
                         <h3 class="card-header text-white">{{ e.name }}</h3>
                         <div class="card-body">
                             <p class="card-text">{{ e.type.name }}</p>
@@ -20,7 +20,7 @@
             </transition-group>
             <div class="text-center">
                 <button class="btn btn-primary" v-on:click="shuffle">
-                    <svgicon name="random"></svgicon>
+                    <font-awesome-icon icon="fa-regular fa-shuffle"/>
                     &nbsp;Reassign
                 </button>
             </div>

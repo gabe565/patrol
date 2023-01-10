@@ -3,10 +3,10 @@
 $sidebar-base-width: 17rem;
 
 // Core variables and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
 @import "variables";
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
 
 // Global CSS
 @import "main";

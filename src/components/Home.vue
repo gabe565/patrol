@@ -13,17 +13,17 @@
                         <label class="input-group-text" :for="e.id" style="min-width: 87px;">Player {{ i + 1 }}</label>
                         <input class="form-control" type="text" :id="e.id" v-model="e.val" autocomplete="off">
                         <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="removeInput(i)" :disabled="!canRemove" v-if="i > 0">
-                            <svgicon name="minus"></svgicon>
+                          <font-awesome-icon icon="fa-regular fa-minus"/>
                         </button>
                         <button type="button" class="btn btn-secondary" tabindex="-1" v-on:click="addInput" :disabled="!canAdd" v-else>
-                            <svgicon name="plus"></svgicon>
+                          <font-awesome-icon icon="fa-regular fa-plus"/>
                         </button>
                     </div>
                     <div class="col pt-3">
                         <div class="card" disabled>
                             <a data-bs-toggle="collapse" href="#config" role="button" aria-exanded="false" aria-controls="config" class="text-decoration-none">
                                 <div class="card-header">
-                                    <svgicon name="cog"></svgicon>
+                                  <font-awesome-icon icon="fa-regular fa-cog"/>
                                     &nbsp;Game Configuration
                                 </div>
                             </a>
@@ -46,7 +46,7 @@
                                         </ul>
                                         <div class="text-center">
                                             <button type="button" class="btn btn-primary" v-on:click="resetConfig">
-                                                <svgicon name="undo-alt"></svgicon>
+                                                <font-awesome-icon icon="fa-regular fa-rotate-left"/>
                                                 &nbsp;Reset</button>
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                     <div class="col pt-3">
                         <div class="card">
                             <div class="card-header">
-                                <svgicon name="cubes"></svgicon>
+                                <font-awesome-icon icon="fa-regular fa-cubes"/>
                                 &nbsp;Needed Supplies
                             </div>
                             <transition name="fade" mode="out-in">

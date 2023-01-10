@@ -1,12 +1,12 @@
 FROM --platform=$BUILDPLATFORM node:18-alpine as build-deps
 WORKDIR /app
 
-COPY package.json package-lock.json webpack.mix.js ./
+COPY package.json package-lock.json .npmrc ./
+ARG FONTAWESOME_NPM_AUTH_TOKEN
 RUN npm ci
 
-COPY static/ static/
-COPY src/ src/
-RUN npm run production --no-progress
+COPY . .
+RUN npm run build
 
 
 FROM nginx:stable-alpine

@@ -1,13 +1,25 @@
+import agent1 from './images/agent1.jpg';
+import agent2 from './images/agent2.jpg';
+import agent3 from './images/agent3.jpg';
+import commander1 from './images/commander1.jpg';
+import commander2 from './images/commander2.jpg';
+import commander3 from './images/commander3.jpg';
+import commander4 from './images/commander4.jpg';
+import patrol1 from './images/patrol1.jpg';
+import patrol2 from './images/patrol2.jpg';
+import patrol3 from './images/patrol3.jpg';
+import scout from './images/scout.jpg';
+
 const types = {
     "Commander": {
         "name": "Commander",
         "order": 0,
         "color": "success",
         "image": [
-            "commander1.jpg",
-            "commander2.jpg",
-            "commander3.jpg",
-            "commander4.jpg"
+            commander1,
+            commander2,
+            commander3,
+            commander4
         ]
     },
     "Scout": {
@@ -15,7 +27,7 @@ const types = {
         "order": 1,
         "color": "info",
         "image": [
-            "scout.jpg",
+            scout,
         ]
     },
     "Agent": {
@@ -23,9 +35,9 @@ const types = {
         "order": 2,
         "color": "warning",
         "image": [
-            "agent1.jpg",
-            "agent2.jpg",
-            "agent3.jpg"
+            agent1,
+            agent2,
+            agent3
         ]
     },
     "Patrol": {
@@ -33,9 +45,9 @@ const types = {
         "order": 3,
         "color": "danger",
         "image": [
-            "patrol1.jpg",
-            "patrol2.jpg",
-            "patrol3.jpg"
+            patrol1,
+            patrol2,
+            patrol3
         ]
     }
 }
@@ -75,7 +87,7 @@ const configs = {
     }
 }
 
-module.exports = {
+export default {
     types,
     configs
 }

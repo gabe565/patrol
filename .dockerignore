@@ -1,7 +1,5 @@
 .git
+.github
 .idea
 dist/
 node_modules
-public/css
-public/js
-public/mix-manifest.json
