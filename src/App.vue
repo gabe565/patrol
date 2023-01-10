@@ -7,7 +7,7 @@
       <router-link to="/" class="navbar-brand">
         <font-awesome-icon
           icon="fa-thin fa-toilet-paper"
-          class="fa-2x align-middle"
+          class="fa-2x align-middle fa-fw"
         />
         &nbsp;Patrol
       </router-link>
