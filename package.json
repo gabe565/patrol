@@ -19,7 +19,6 @@
         "@vitejs/plugin-vue": "4.0.0",
         "@vue/compiler-sfc": "3.2.45",
         "bootstrap": "5.2.3",
-        "npm": "9.2.0",
         "pinia": "2.0.28",
         "r": "0.0.5",
         "vite": "4.0.4",
