@@ -17,7 +17,7 @@
         "@fortawesome/vue-fontawesome": "3.0.3",
         "@popperjs/core": "2.11.6",
         "@vitejs/plugin-vue": "4.0.0",
-        "@vue/compiler-sfc": "3.2.45",
+        "@vue/compiler-sfc": "3.2.47",
         "bootstrap": "5.2.3",
         "pinia": "2.0.29",
         "r": "0.0.5",
