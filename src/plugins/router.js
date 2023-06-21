@@ -37,9 +37,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title ? `${to.meta.title} | Patrol` : "Patrol";
-  document
-    .getElementById("app")
-    .classList.replace(from.meta.title, to.meta.title);
+  document.getElementById("app").classList.replace(from.meta.title, to.meta.title);
   next();
 });
 

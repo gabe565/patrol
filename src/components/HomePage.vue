@@ -5,21 +5,11 @@
       <div class="subheading mb-5">Enter the player names:</div>
       <div class="col-xl-5 col-md-8 mx-auto">
         <form @submit.prevent="submit">
-          <div
-            v-for="(e, i) in inputs"
-            :key="e.id"
-            class="input-group py-1 col"
-          >
+          <div v-for="(e, i) in inputs" :key="e.id" class="input-group py-1 col">
             <label class="input-group-text" :for="e.id" style="min-width: 87px"
               >Player {{ i + 1 }}</label
             >
-            <input
-              :id="e.id"
-              v-model="e.val"
-              class="form-control"
-              type="text"
-              autocomplete="off"
-            />
+            <input :id="e.id" v-model="e.val" class="form-control" type="text" autocomplete="off" />
             <button
               v-if="i > 0"
               type="button"
@@ -60,8 +50,7 @@
                 <div class="card-body">
                   <transition name="fade" mode="out-in">
                     <div v-if="valid" key="invalid" class="card-text">
-                      Here is the configuration for a {{ numPlayers }} player
-                      game:
+                      Here is the configuration for a {{ numPlayers }} player game:
                       <ul class="list-unstyled">
                         <li v-for="(e, key) in config" :key="key">
                           <div class="col-10 mx-auto">
@@ -74,10 +63,7 @@
                                 :max="maxs[key]"
                                 autocomplete="off"
                               />
-                              <span
-                                class="input-group-text"
-                                style="min-width: 130px"
-                              >
+                              <span class="input-group-text" style="min-width: 130px">
                                 {{ key }}<span v-if="e > 1">s</span>
                               </span>
                             </div>
@@ -85,11 +71,7 @@
                         </li>
                       </ul>
                       <div class="text-center">
-                        <button
-                          type="button"
-                          class="btn btn-primary"
-                          @click="resetConfig"
-                        >
+                        <button type="button" class="btn btn-primary" @click="resetConfig">
                           <font-awesome-icon icon="fa-regular fa-rotate-left" />
                           &nbsp;Reset
                         </button>
@@ -113,17 +95,13 @@
                 <ul v-if="valid" class="list-group list-group-flush">
                   <li class="list-group-item">5 toilet paper rolls</li>
                   <li class="list-group-item">{{ supplies.phones }} phones</li>
-                  <li class="list-group-item">
-                    {{ supplies.headphones }} sets of headphones
-                  </li>
+                  <li class="list-group-item">{{ supplies.headphones }} sets of headphones</li>
                 </ul>
               </transition>
             </div>
           </div>
           <div class="text-center mt-3">
-            <button :disabled="!valid" class="btn btn-primary">
-              Assign Roles
-            </button>
+            <button :disabled="!valid" class="btn btn-primary">Assign Roles</button>
           </div>
         </form>
       </div>
@@ -186,10 +164,7 @@ export default {
     maxs() {
       const total = Object.values(this.config).reduce((a, c) => a + c);
       if (total >= this.numPlayers) return this.config;
-      return Object.entries(this.config).reduce(
-        (obj, [k, v]) => ({ ...obj, [k]: v + 1 }),
-        {}
-      );
+      return Object.entries(this.config).reduce((obj, [k, v]) => ({ ...obj, [k]: v + 1 }), {});
     },
     supplies() {
       return {

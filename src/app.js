@@ -11,8 +11,4 @@ import router from "./plugins/router";
 
 const pinia = createPinia();
 
-createApp(App)
-  .component("font-awesome-icon", FontAwesomeIcon)
-  .use(router)
-  .use(pinia)
-  .mount("#app");
+createApp(App).component("font-awesome-icon", FontAwesomeIcon).use(router).use(pinia).mount("#app");

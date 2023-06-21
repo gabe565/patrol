@@ -4,11 +4,7 @@
       <h1 class="mb-0">Roles</h1>
       <div class="subheading mb-5">Here are the shuffled roles:</div>
       <transition-group name="flip-list" tag="div" class="row">
-        <div
-          v-for="e in results"
-          :key="e.name"
-          class="col-sm-6 col-md-4 col-xl-3"
-        >
+        <div v-for="e in results" :key="e.name" class="col-sm-6 col-md-4 col-xl-3">
           <div class="card text-white mb-5" :class="['bg-' + e.type.color]">
             <img class="card-img-top" :src="sample(e.type.image)" />
             <h3 class="card-header text-white">{{ e.name }}</h3>
@@ -55,10 +51,7 @@ export default {
     },
   },
   created() {
-    if (
-      this.gameStore.players.length === 0 ||
-      this.gameStore.config.length === 0
-    ) {
+    if (this.gameStore.players.length === 0 || this.gameStore.config.length === 0) {
       this.$router.replace({ name: "home" });
     }
 

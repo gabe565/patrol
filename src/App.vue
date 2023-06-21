@@ -1,14 +1,8 @@
 <template>
   <div id="app">
-    <nav
-      id="sideNav"
-      class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"
-    >
+    <nav id="sideNav" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <router-link to="/" class="navbar-brand">
-        <font-awesome-icon
-          icon="fa-thin fa-toilet-paper"
-          class="fa-2x align-middle fa-fw"
-        />
+        <font-awesome-icon icon="fa-thin fa-toilet-paper" class="fa-2x align-middle fa-fw" />
         &nbsp;Patrol
       </router-link>
       <button
@@ -33,10 +27,7 @@
 
           <li class="nav-item">
             <router-link to="/about" class="nav-link">
-              <font-awesome-icon
-                icon="fa-regular fa-info-circle"
-                class="fa-fw"
-              />
+              <font-awesome-icon icon="fa-regular fa-info-circle" class="fa-fw" />
               About
             </router-link>
           </li>

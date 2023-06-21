@@ -20,5 +20,5 @@ library.add(
   faCog,
   faRotateLeft,
   faCubes,
-  faShuffle
+  faShuffle,
 );
