@@ -1,14 +1,14 @@
-import agent1 from "./images/agent1.jpg";
-import agent2 from "./images/agent2.jpg";
-import agent3 from "./images/agent3.jpg";
-import commander1 from "./images/commander1.jpg";
-import commander2 from "./images/commander2.jpg";
-import commander3 from "./images/commander3.jpg";
-import commander4 from "./images/commander4.jpg";
-import patrol1 from "./images/patrol1.jpg";
-import patrol2 from "./images/patrol2.jpg";
-import patrol3 from "./images/patrol3.jpg";
-import scout from "./images/scout.jpg";
+import agent1 from "./assets/images/agent1.jpg";
+import agent2 from "./assets/images/agent2.jpg";
+import agent3 from "./assets/images/agent3.jpg";
+import commander1 from "./assets/images/commander1.jpg";
+import commander2 from "./assets/images/commander2.jpg";
+import commander3 from "./assets/images/commander3.jpg";
+import commander4 from "./assets/images/commander4.jpg";
+import patrol1 from "./assets/images/patrol1.jpg";
+import patrol2 from "./assets/images/patrol2.jpg";
+import patrol3 from "./assets/images/patrol3.jpg";
+import scout from "./assets/images/scout.jpg";
 
 const types = {
   Commander: {
