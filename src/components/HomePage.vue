@@ -18,7 +18,7 @@
               :disabled="!canRemove"
               @click="removeInput(i)"
             >
-              <font-awesome-icon icon="fa-regular fa-minus" />
+              <remove-icon />
             </button>
             <button
               v-else
@@ -28,7 +28,7 @@
               :disabled="!canAdd"
               @click="addInput"
             >
-              <font-awesome-icon icon="fa-regular fa-plus" />
+              <add-icon />
             </button>
           </div>
           <div class="col pt-3">
@@ -42,7 +42,7 @@
                 class="text-decoration-none"
               >
                 <div class="card-header">
-                  <font-awesome-icon icon="fa-regular fa-cog" />
+                  <settings-icon />
                   &nbsp;Game Configuration
                 </div>
               </a>
@@ -72,7 +72,7 @@
                       </ul>
                       <div class="text-center">
                         <button type="button" class="btn btn-primary" @click="resetConfig">
-                          <font-awesome-icon icon="fa-regular fa-rotate-left" />
+                          <reset-icon />
                           &nbsp;Reset
                         </button>
                       </div>
@@ -88,7 +88,7 @@
           <div class="col pt-3">
             <div class="card">
               <div class="card-header">
-                <font-awesome-icon icon="fa-regular fa-cubes" />
+                <supplies-icon />
                 &nbsp;Needed Supplies
               </div>
               <transition name="fade" mode="out-in">
@@ -108,6 +108,14 @@
     </section>
   </div>
 </template>
+
+<script setup>
+import AddIcon from "~icons/material-symbols/add-rounded";
+import RemoveIcon from "~icons/material-symbols/remove-rounded";
+import SettingsIcon from "~icons/material-symbols/settings-rounded";
+import ResetIcon from "~icons/material-symbols/rotate-left-rounded";
+import SuppliesIcon from "~icons/mdi/cube-outline";
+</script>
 
 <script>
 import { mapStores } from "pinia";

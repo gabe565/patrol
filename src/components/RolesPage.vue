@@ -16,13 +16,17 @@
       </transition-group>
       <div class="text-center">
         <button class="btn btn-primary" @click="shuffle">
-          <font-awesome-icon icon="fa-regular fa-shuffle" />
+          <shuffle-icon />
           &nbsp;Reassign
         </button>
       </div>
     </section>
   </div>
 </template>
+
+<script setup>
+import ShuffleIcon from "~icons/material-symbols/shuffle-rounded";
+</script>
 
 <script>
 import { mapStores } from "pinia";
