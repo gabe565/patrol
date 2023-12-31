@@ -16,7 +16,7 @@
         "@iconify-json/material-symbols": "1.1.48",
         "@iconify-json/mdi": "1.1.52",
         "@popperjs/core": "2.11.7",
-        "@vitejs/plugin-vue": "4.1.0",
+        "@vitejs/plugin-vue": "4.6.2",
         "@vue/compiler-sfc": "3.2.47",
         "bootstrap": "5.2.3",
         "pinia": "2.0.34",
