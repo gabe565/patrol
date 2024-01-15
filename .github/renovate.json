@@ -16,14 +16,5 @@
       "matchPackageNames": ["vue-loader"],
       "allowedVersions": "< 16"
     }
-  ],
-  "hostRules": [
-    {
-      "matchHost": "https://npm.fontawesome.com/",
-      "hostType": "npm",
-      "encrypted": {
-        "token": "wcFMA/xDdHCJBTolAQ/9GgtIZHyLS6/uuATpM/bs57v0r5/EnlGtKM7rZ9kArUuPT6h7vA4Dc/OsZ4h8LYb7Q4JAOZ0ybns16cCwpcS/X/Q7T4I+g93GcgIeTfJPMvhMzor+dcvJ3esoDITh89mcBPn2aJxRV78pqBZlcD2r3koul6++1hduSNW2xNWXymNCAiWrTXibbUOQqQ3VjpvW20OAjLprcCWdaneu0hlxrozFT0wKNdYwVdvUyW3zQ5yTt4wSGnc1GM1ndZBPO6lBJ9OVAdPj6n7rOg+pMzRdyFcY3M3vyHnwIY6vExCv3hAnvycm4AoYE74ZvUdrgqcDFWazrFPXyw4trAIIDUYlWRMGFKVd49XaaSnnS9Ecovw5evLpMiqMbbKUGmgpZq96iU9Fvqo0oWE3OfLrLE3LZhWlALXplaz0t0jq8LFrfikU6OQ/ei7EK2MA6S0Micp1Hvyj5eryEz5ZMUlvveutH1NGN22mki8xjpwhw6CBcF2j7TDkXaTTmmZ0lJx19ksxh1mDNRCSjOs6Rq2VV2BZ9hiSXHDbYV2BDNPhNhKorLC+p1PRkrj7HI5Y5vEXrkEu/G8GFUKJ48UX7630gCF1q+fcYwRFj54ro5kWBFv97ik0RTBSzbuMkvCJSGcOwLwGKhK9y6LiBXHSeNOB9S/xucVycfAGPoAyhECzcrNb2unSeAGzMMwMknRJjzFlnEwsGfXoJPoG5IVO+rkM1HcCg5q77qqonIf1RpaaMOcTlEJdT9aHBlMSEkjvjiPVoZDfhRviNS5OueOwBSiq67LKLN1gpHtKAaUbZ2yC9e5MbxIgR0OM1MgAckPIXkgtOkqfz+2vs5OazqgRUA"
-      }
-    }
   ]
 }
