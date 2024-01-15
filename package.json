@@ -14,7 +14,7 @@
     "dependencies": {
         "@fontsource/saira-extra-condensed": "5.0.3",
         "@iconify-json/material-symbols": "1.1.48",
-        "@iconify-json/mdi": "1.1.52",
+        "@iconify-json/mdi": "1.1.64",
         "@popperjs/core": "2.11.7",
         "@vitejs/plugin-vue": "5.0.3",
         "@vue/compiler-sfc": "3.2.47",
